@@ -16,7 +16,7 @@ public class RegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("./account/register.jsp").forward(request, response);
+        request.getRequestDispatcher("signup.jsp").forward(request, response);
     }
 
     @Override
@@ -31,18 +31,17 @@ public class RegisterController extends HttpServlet {
 
         if (!isValid) {
             HttpSession session = request.getSession();
-            session.setAttribute("namesignup", username);
+            session.setAttribute("username", username);
 
             String fullname = request.getParameter("fullname");
             String phone = request.getParameter("phone");
             
-            
-
             Manager obj = new Manager(random(), fullname, phone, username, password);
             daoMana.insertManager(obj);
-
+            
+            response.sendRedirect("home");
         } else {
-            request.getRequestDispatcher("./account/register.jsp").forward(request, response);
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
         }
     }
 
