@@ -2,6 +2,7 @@ package model;
 
 import entity.Menu;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DAOMenu extends DBContext {
@@ -20,6 +21,11 @@ public class DAOMenu extends DBContext {
             ex.printStackTrace();
         }
         return n;
+    }
+    
+    public ResultSet getAll(){
+        String sql = "select * from Menu";
+        return getData(sql);
     }
     
     public static void main(String[] args) {
