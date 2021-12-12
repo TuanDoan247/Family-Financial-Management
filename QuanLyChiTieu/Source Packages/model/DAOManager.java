@@ -5,6 +5,7 @@ import entity.Manager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,6 +49,27 @@ public class DAOManager extends DBContext{
             Logger.getLogger(DAOManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return isValid;
+    }
+    
+    public ArrayList<Manager> getAll(){
+        ArrayList<Manager> arr = new ArrayList<Manager>();
+        
+        String sql = "select * from Manager";
+        ResultSet rsMana = getData(sql);
+        try{
+            while(rsMana.next()){
+                String mid = rsMana.getString(1);
+                String mFullName = rsMana.getString(2);
+                String mPhone = rsMana.getString(3);
+                String username = rsMana.getString(4);
+                String password = rsMana.getString(5);
+                Manager mana = new Manager(mid, mFullName, mPhone, username, password);
+                arr.add(mana);
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(DAOManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr;
     }
     
     public static void main(String[] args) {
