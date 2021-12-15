@@ -16,7 +16,7 @@ public class DBContext {
     {
         try {
             String username = "sa";
-            String pass = "123456";
+            String pass = "12345678";
             String url = "jdbc:sqlserver://localhost:1433;databaseName=QuanLy";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url, username, pass);
