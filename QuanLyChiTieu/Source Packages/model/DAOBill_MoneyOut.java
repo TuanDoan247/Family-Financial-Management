@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DAOBill_MoneyOut extends DBContext {
 
@@ -84,16 +87,43 @@ public class DAOBill_MoneyOut extends DBContext {
         
         return getData(sql);
     }
+    
+    public void remove(String idMana, String idBill) {
+        String sql = "delete from BillMoneyOut where mid = '"+ idMana +"' and billId = '"+ idBill +"'";
+        try {
+            Statement state = connection.createStatement();
+            state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOBill_MoneyOut.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
+    
+    public ResultSet getBill(String idMana, String idBill){
+        String sql = "select * from BillMoneyOut where mid = '"+ idMana +"' and billId = '"+ idBill +"'"; 
+        return getData(sql);
+    }
+    
+    public int updateBill_MoneyOut(Bill_MoneyOut bill, String idbill, String idMana){
+        int n = 0;
+            String sql = "update BillMoneyOut set "
+                    + "dateCreate = '"+ bill.getDateCreate() +"', "
+                    + "description = '"+ bill.getDescription() +"', "
+                    + "moneyOut = "+ bill.getMoneyOut() +", "
+                    + "menuId = "+ bill.getMenuID() +"\n"
+                    + "where mid = '"+ idMana +"' and billId = '"+ idbill +"'";
+        try {
+            Statement state = connection.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOBill_MoneyOut.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
 
     public static void main(String[] args) {
         DAOBill_MoneyOut dao = new DAOBill_MoneyOut();
 
-        Date date = Date.valueOf("2021-12-01");
-
-        int n = dao.insertBill(new Bill_MoneyOut("FS2", date, "Null", 10000, 2, "BS1"));
-        if (n > 0) {
-            System.out.println("add successfuly");
-        }
+        dao.remove("AT1", "EHX");
 
     }
 }
