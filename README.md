@@ -65,17 +65,17 @@ The idea behind the project is to form a complete management program for Family 
 <h3>User View</h3>
 &nbsp;
 <div>
-	<img src="Image preview/User View/Screenshot 2022-12-25 130311.png"/>
+	<img src="User View/Screenshot 2022-12-25 130311.png"/>
 	&nbsp;
-	<img src="Image preview/User View/Screenshot 2022-12-25 130400.png"/>
+	<img src="User View/Screenshot 2022-12-25 130400.png"/>
 	&nbsp;
-  <img src="Image preview/User View/Screenshot 2022-12-25 130419.png"/>
+  	<img src="User View/Screenshot 2022-12-25 130419.png"/>
 	&nbsp;
-  <img src="Image preview/User View/Screenshot 2022-12-25 130433.png"/>
+  	<img src="User View/Screenshot 2022-12-25 130433.png"/>
 	&nbsp;
-  <img src="Image preview/User View/Screenshot 2022-12-25 130503.png"/>
+  	<img src="User View/Screenshot 2022-12-25 130503.png"/>
 	&nbsp;
-  <img src="Image preview/User View/Screenshot 2022-12-25 130515.png"/>
+  	<img src="User View/Screenshot 2022-12-25 130515.png"/>
 	&nbsp;
 </div>
 &nbsp;
